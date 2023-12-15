@@ -1,4 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
+import { Role } from 'src/role/role.enum';
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -21,6 +22,9 @@ export class User extends BaseEntity {
   @Exclude()
   @Column({ default: true })
   isActive: boolean;
+
+  @Column()
+  roles: string;
 
   @Expose()
   fullName() {

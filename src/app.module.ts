@@ -6,6 +6,9 @@ import { UserModule } from './user/user.module';
 import { User } from './user/user.entity';
 import { ScheduleModule } from '@nestjs/schedule';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { EventsModule } from './events/events.module';
 
 @Module({
   imports: [
@@ -22,6 +25,7 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
       synchronize: true,
     }),
     UserModule,
+    EventsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
